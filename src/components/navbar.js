@@ -9,6 +9,8 @@ import {
 } from "@heroicons/react/outline";
 // import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
 import Logo from "../assets/Logo.svg";
+import Bell from "../assets/Bell.svg";
+import Help from "../assets/Help.svg";
 
 const navigation = [
   // { name: 'Dashboard', href: '#', current: true },
@@ -26,7 +28,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-2">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -40,7 +42,7 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
+                <div className="flex-shrink-0 flex items-center -ml-6">
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src={Logo}
@@ -136,26 +138,37 @@ export default function Navbar() {
                   </Menu.Items>
                 </Transition>
               </Menu>
-              <div>tom</div>>
+              <div className="p-2 ml-2 font-semibold">Shravan</div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {/* BellIcon for Notification Bell */}
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
                 {/* Help Button */}
                 <button
                   type="button"
-                  className="bg-gray-800 p-1 ml-2 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="bg-white p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
-                  <span className="sr-only">Help</span>
+                  {/* <span className="sr-only">Help</span>
                   <QuestionMarkCircleIcon
-                    className="h-6 w-6"
+                    className="h-6 w-6 "
                     aria-hidden="true"
-                  />
+                  /> */}
+                  <span className="sr-only">Open user menu</span>
+                    <img
+                      className="h-6 w-6 rounded-full"
+                      src={Bell}
+                      alt=""
+                    />
+                </button>
+                {/* BellIcon for Notification Bell */}
+                <button
+                  type="button"
+                  className="bg-white p-1 ml-6 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                >
+                  <span className="sr-only">View notifications</span>
+                  <img
+                      className="h-6 w-6 rounded-full"
+                      src={Help}
+                      alt=""
+                    />
+                  {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
                 </button>
 
                 {/* Profile dropdown */}
