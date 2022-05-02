@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import useCollapse from "react-collapsed";
+
 import Wifi from "../assets/Wifi.svg";
 import Pencil from "../assets/Pencil.svg";
 import Dustbin from "../assets/Dustbin.svg";
 import Approval from "../assets/Approval.svg";
 import Eyes from "../assets/Eyes.svg";
 import Back from "../assets/Back.svg";
+import Plus from "../assets/Plus.svg";
+import SwitchOn from "../assets/SwitchOn.svg";
+import SwitchOff from "../assets/SwitchOff.svg";
+import Minus from "../assets/Minus.svg";
+import Expand from "../components/expandView";
+
+
 
 const AccessControl = ({ closeWindow }) => {
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+  function Collapsible() {
+    return (
+      <div className=" align-middle">
+        <div className="m-auto cursor-pointer" {...getToggleProps()}>
+          {isExpanded ? (
+            <img src={Minus} className="mb-12" />
+          ) : (
+            <img src={Plus} className="" />
+          )}
+        </div>
+        <div {...getCollapseProps()}>
+          <div className="flex">
+            {/* <img src={Back} className="h-10 w-10" />
+            <img src={Dustbin} className="h-10 w-10" /> */}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div className="w-8/12 align-middle justify-center ml-14">
@@ -118,11 +147,7 @@ const AccessControl = ({ closeWindow }) => {
               <tr class="bg-white border-b dark:bg-white dark:border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-200">
                 <td class="w-4 p-4">
                   <div class="flex items-center">
-                    <img
-                      className="h-6 w-6 cursor-pointer"
-                      src={Eyes}
-                      alt="+"
-                    />
+                    <Collapsible />
                   </div>
                 </td>
                 <th
@@ -142,14 +167,12 @@ const AccessControl = ({ closeWindow }) => {
                 <td class="px-6 py-4 text-center">4</td>
                 <td class="px-6 py-4 text-center">1 min ago</td>
                 <td class="px-6 py-4 text-right">
-                  <img
-                    className="h-6 w-6 cursor-pointer"
-                    src={Eyes}
-                    alt=""
-                    // onClick={() => {
-                    //   setShowAccessControl(true);
-                    // }}
-                  />
+                  {console.log("dasdsadsaD",isExpanded)}
+                  {isExpanded ? (
+                    <img src={SwitchOn} className="" />
+                  ) : (
+                    <img src={SwitchOff} className="" />
+                  )}
                 </td>
               </tr>
 
@@ -184,7 +207,7 @@ const AccessControl = ({ closeWindow }) => {
                 <td class="px-6 py-4 text-center">4</td>
                 <td class="px-6 py-4 text-center">1 min ago</td>
                 <td class="px-6 py-4 text-right">
-                  <img className="h-6 w-6 cursor-pointer" src={Eyes} alt="" />
+                  <img className="h-8 w-8" src={SwitchOn} alt="SwitchOn" />
                 </td>
               </tr>
 
@@ -219,7 +242,7 @@ const AccessControl = ({ closeWindow }) => {
                 <td class="px-6 py-4 text-center">4</td>
                 <td class="px-6 py-4 text-center">1 min ago</td>
                 <td class="px-6 py-4 text-right">
-                  <img className="h-6 w-6 cursor-pointer" src={Eyes} alt="" />
+                  <img className="h-8 w-8" src={SwitchOff} alt="SwitchOff" />
                 </td>
               </tr>
 
@@ -246,7 +269,7 @@ const AccessControl = ({ closeWindow }) => {
                 <td class="px-6 py-4">
                   <button
                     type="button"
-                    class="text-white  bg-AccessButtonGreen opacity-20 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm px-8 py-2 text-center border-6 dark:focus:ring-blue-800 cursor-pointer"
+                    class="text-white  bg-sideBarActive opacity-20 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm px-8 py-2 text-center border-6 dark:focus:ring-blue-800 cursor-pointer"
                   >
                     <h1 class="text-black opacity-100">All Access</h1>
                   </button>
@@ -254,14 +277,13 @@ const AccessControl = ({ closeWindow }) => {
                 <td class="px-6 py-4 text-center">4</td>
                 <td class="px-6 py-4 text-center">1 min ago</td>
                 <td class="px-6 py-4 text-right">
-                  <img className="h-6 w-6 cursor-pointer" src={Eyes} alt="" />
+                  <img className="h-8 w-8" src={SwitchOn} alt="SwitchOn" />
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
       {/* States */}
       {/* <button
       // className="bg-red w-6 h-6"

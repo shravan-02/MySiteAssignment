@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "../components/navbar"
-import Sidebar from "../components/sidebar"
-import Permissions from "../components/permissions"
+import Navbar from "../components/navbar";
+import Sidebar from "../components/sidebar";
+import Permissions from "../components/permissions";
+import Expand from "../components/expandView";
 import AccessControl from "./accessControl";
 
 const Home_1 = () => {
@@ -14,18 +15,21 @@ const Home_1 = () => {
   };
   return (
     <>
-    
-    {/* Debugging  */}
+      {/* Debugging  */}
       {/* <Navbar />
       <Permissions />
       <Sidebar /> */}
-        <div className="flex">
-            <Sidebar />
-           {showAccessControl?<AccessControl closeWindow={disableAccessControl} />: <Permissions className="space-x-4"
-           enableWindow={enableAccessControl}
-           />}
-            
-        </div>
+      <div className="flex">
+        <Sidebar />
+        {showAccessControl ? (
+          <AccessControl closeWindow={disableAccessControl} />
+        ) : (
+          <Permissions
+            className="space-x-4"
+            enableWindow={enableAccessControl}
+          />
+        )}
+      </div>
       {/*  */}
     </>
   );

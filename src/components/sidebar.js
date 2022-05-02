@@ -6,7 +6,7 @@ import Permission from "../assets/Permission.svg";
 const sidebar = () => {
   return (
     <aside class="w-64 " aria-label="Sidebar">
-      <div class="min-h-screen py-4 px-3 bg-gray-50 rounded dark:bg-gray-50">
+      <div class="h-full py-4 px-3 bg-gray-50 rounded dark:bg-gray-50">
         <ul class="space-y-2">
           {/* 1 */}
           <li>
